@@ -1,12 +1,13 @@
 export interface Action {
-    id: number;
-    text: string;
     type: string;
-    filter: string;
+    id?: number;
+    text?: string;
+    filter?: string;
 }
 
 export interface Todo {
     id: number;
+    active: boolean;
     text: string;
     completed: boolean;
   }

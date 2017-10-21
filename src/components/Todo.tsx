@@ -1,7 +1,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 
-const Todo = ({ onClick, completed, text }) => (
+const TodoForm = ({ onClick, completed, text }) => (
   <li
     onClick={onClick}
     style={{
@@ -18,4 +18,4 @@ const Todo = ({ onClick, completed, text }) => (
 //   text: PropTypes.string.isRequired
 // };
 
-export default Todo;
+export default TodoForm;
