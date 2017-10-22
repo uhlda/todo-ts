@@ -5,6 +5,7 @@ import Link from '../components/Link';
 
 interface StateFromProps {
   active: boolean;
+  filter: string;
 }
 
 interface DispatchFromProps {
@@ -13,18 +14,20 @@ interface DispatchFromProps {
 
 export interface Props extends StateFromProps, DispatchFromProps {}
 
-const mapStateToProps = (state , ownProps): StateFromProps => ({
-  active: ownProps.filter === state.visibilityFilter
+const mapStateToProps = (state, ownProps): StateFromProps => ({
+  active: ownProps.filter === state.visibilityFilter,
+  filter: ownProps.filter
 });
 
-const mapDispatchToProps = (dispatch, ownProps): DispatchFromProps => ({
+// tslint:disable:no-any
+const mapDispatchToProps = (dispatch: Dispatch<any>, ownProps): DispatchFromProps => ({
   onClick: () => {
-    dispatch(setVisibilityFilter(ownProps.filter));
+    dispatch<any>(setVisibilityFilter(ownProps.filter));
   },
 });
 
-// const FilterLink = connect<StateFromProps, DispatchFromProps>(
-const FilterLink = connect(
+const FilterLink: any = connect<StateFromProps, DispatchFromProps>(
+// const FilterLink = connect(
   mapStateToProps,
   mapDispatchToProps,
   null,
