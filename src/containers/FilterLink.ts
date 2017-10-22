@@ -5,24 +5,25 @@ import Link from '../components/Link';
 
 interface StateFromProps {
   active: boolean;
-  visibilityFilter: string;
 }
 
 interface DispatchFromProps {
   onClick: () => void;
-  filter: string;
 }
 
-const mapStateToProps = (state , ownProps) => ({
+export interface Props extends StateFromProps, DispatchFromProps {}
+
+const mapStateToProps = (state , ownProps): StateFromProps => ({
   active: ownProps.filter === state.visibilityFilter
 });
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
+const mapDispatchToProps = (dispatch, ownProps): DispatchFromProps => ({
   onClick: () => {
     dispatch(setVisibilityFilter(ownProps.filter));
-  }
+  },
 });
 
+// const FilterLink = connect<StateFromProps, DispatchFromProps>(
 const FilterLink = connect(
   mapStateToProps,
   mapDispatchToProps,

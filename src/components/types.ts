@@ -10,4 +10,10 @@ export interface Todo {
     active: boolean;
     text: string;
     completed: boolean;
-  }
+    onClick: () => void;
+}
+
+interface State {
+    visibilityFilter: string;
+    todos: Todo[];
+}
