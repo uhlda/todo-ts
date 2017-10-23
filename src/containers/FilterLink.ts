@@ -16,7 +16,7 @@ export interface Props extends StateFromProps, DispatchFromProps {}
 
 const mapStateToProps = (state, ownProps): StateFromProps => ({
   active: ownProps.filter === state.visibilityFilter,
-  filter: ownProps.filter
+  filter: state.visibilityFilter
 });
 
 // tslint:disable:no-any
@@ -27,7 +27,6 @@ const mapDispatchToProps = (dispatch: Dispatch<any>, ownProps): DispatchFromProp
 });
 
 const FilterLink: any = connect<StateFromProps, DispatchFromProps>(
-// const FilterLink = connect(
   mapStateToProps,
   mapDispatchToProps,
   null,
