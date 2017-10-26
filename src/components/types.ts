@@ -7,7 +7,12 @@ export interface Action {
 
 export interface Todo {
     id: number;
-    active: boolean;
     text: string;
     completed: boolean;
-  }
+    onClick: () => void;
+}
+
+interface State {
+    visibilityFilter: string;
+    todos: Todo[];
+}
