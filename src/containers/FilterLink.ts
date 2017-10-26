@@ -5,7 +5,7 @@ import Link from '../components/Link';
 
 interface StateFromProps {
   active: boolean;
-  filter: string;
+  // filter: string;
 }
 
 interface DispatchFromProps {
@@ -16,7 +16,7 @@ export interface Props extends StateFromProps, DispatchFromProps {}
 
 const mapStateToProps = (state, ownProps): StateFromProps => ({
   active: ownProps.filter === state.visibilityFilter,
-  filter: state.visibilityFilter
+  // filter: state.visibilityFilter
 });
 
 // tslint:disable:no-any
