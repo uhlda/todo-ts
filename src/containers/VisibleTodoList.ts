@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { toggleTodo } from '../actions';
 import { Todo } from '../components/types';
 import TodoList from '../components/TodoList';
+import { Action } from '../components/types';
 
 interface StateFromProps {
   todos: Todo[];
@@ -9,7 +10,7 @@ interface StateFromProps {
 } 
 
 interface DispatchFromProps {
-  onTodoClick: (id: number) => void;
+  onTodoClick: (id: number) => Action;
 }
 
 export interface Props extends StateFromProps, DispatchFromProps {}
