@@ -18,12 +18,12 @@ const mapStateToProps = (state, ownProps): StateFromProps => ({
   active: ownProps.filter === state.visibilityFilter,
 });
 
-// tslint:disable:no-any
-const mapDispatchToProps = (dispatch: Dispatch<any>, ownProps): DispatchFromProps => ({
+const mapDispatchToProps = (dispatch: Dispatch<Action>, ownProps): DispatchFromProps => ({
   onClick: () => 
-    dispatch<any>(setVisibilityFilter(ownProps.filter))
+    dispatch<Action>(setVisibilityFilter(ownProps.filter))
 });
 
+// tslint:disable-next-line:no-any
 const FilterLink: any = connect<StateFromProps, DispatchFromProps>(
   mapStateToProps,
   mapDispatchToProps,
