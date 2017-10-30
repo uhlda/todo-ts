@@ -38,7 +38,7 @@ const mapDispatchToProps = {
 };
 
 // tslint:disable-next-line:no-any
-const VisibleTodoList: any = connect<StateFromProps, DispatchFromProps>(
+const VisibleTodoList = connect<StateFromProps, DispatchFromProps>(
   mapStateToProps,
   mapDispatchToProps,
   null,
