@@ -9,7 +9,6 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import devToolsEnhancer from 'remote-redux-devtools';
 import './index.css';
 
-// const store = createStore(reducer);
 const store = createStore(reducer, composeWithDevTools());
 ReactDOM.render(
   <Provider store={store}>

@@ -1,4 +1,4 @@
-import { Action, Todo } from '../types';
+import { Action, Todo } from '../components/types';
 
 const todos = (state = [], action: Action) => {
   switch (action.type) {
