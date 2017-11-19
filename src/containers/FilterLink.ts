@@ -6,6 +6,7 @@ import { Action, State } from '../components/types';
 
 interface StateFromProps {
   active: boolean;
+  filter: string;
 }
 
 interface DispatchFromProps {
@@ -16,6 +17,7 @@ export interface Props extends StateFromProps, DispatchFromProps {}
 
 const mapStateToProps = (state, ownProps): StateFromProps => ({
   active: ownProps.filter === state.visibilityFilter,
+  filter: ownProps.filter
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<Action>, ownProps): DispatchFromProps => ({

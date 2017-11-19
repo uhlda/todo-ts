@@ -17,28 +17,30 @@ export interface Props extends StateFromProps, DispatchFromProps {}
 
 const getVisibleTodos = (todos, filter) => {
   switch (filter) {
-    case 'SHOW_ALL':
-      return todos;
     case 'SHOW_COMPLETED':
       return todos.filter(t => t.completed);
     case 'SHOW_ACTIVE':
       return todos.filter(t => !t.completed);
+    case 'SHOW_ALL':
     default:
-      throw new Error('Unknown filter: ' + filter);
+      return todos;
   }
 };
 
-const mapStateToProps = (state) => ({
-  todos: getVisibleTodos(state.todos, state.visibilityFilter),
-  filter: state.visibilityFilter
-});
+const mapStateToProps = (state, ownProps) => {
+  return {
+    todos: getVisibleTodos(state.todos, ownProps.filter),
+    filter: ownProps.filter
+    // previously was getVisibleTodos(state.todos, state.visibilityFilter)
+  };
+};
 
 const mapDispatchToProps = {
   onTodoClick: toggleTodo
 };
 
 // tslint:disable-next-line:no-any
-const VisibleTodoList = connect<StateFromProps, DispatchFromProps>(
+const VisibleTodoList: any = connect<StateFromProps, DispatchFromProps>(
   mapStateToProps,
   mapDispatchToProps,
   null,

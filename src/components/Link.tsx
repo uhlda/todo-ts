@@ -1,31 +1,17 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
-import { Props } from '../containers/FilterLink';
+import { NavLink } from 'react-router-dom';
 
-class Link extends React.Component<Props, {}> {
-  render() {
-    const { active, children, onClick } = this.props;
-    if (active) {
-      return <span>{children}</span>;
-    }
-    return(
-      <a 
-        href="#"
-        onClick={e => {
-          e.preventDefault();
-          onClick();
-        }}
-      >
-        {children}
-      </a>
-    );
-  }
-}
+// tslint:disable-next-line:no-any
+const FilterLink: any = ({ filter, children }) => (
+  <NavLink
+    to={filter === 'SHOW_ALL' ? '/' : `/${ filter }`}
+    activeStyle={{
+      textDecoration: 'none',
+      color: 'black'
+    }}
+  >
+    {children}
+  </NavLink>
+);
 
-// Link.propTypes = {
-//   active: PropTypes.bool.isRequired,
-//   children: PropTypes.node.isRequired,
-//   onClick: PropTypes.func.isRequired
-// };
-
-export default Link;
+export default FilterLink;

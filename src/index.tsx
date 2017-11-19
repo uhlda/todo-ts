@@ -8,12 +8,13 @@ import registerServiceWorker from './registerServiceWorker';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import devToolsEnhancer from 'remote-redux-devtools';
 import './index.css';
+import Root from './components/root';
 
 const store = createStore(reducer, composeWithDevTools());
+
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('root') as HTMLElement
+  <Root store={store} />,
+  document.getElementById('root')
 );
+
 registerServiceWorker();
